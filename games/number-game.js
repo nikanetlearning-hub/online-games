@@ -20,10 +20,7 @@ const NumberGame = {
         en: ['one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen','twenty']
     },
 
-    /* رنگ‌های مختلف برای هر عدد (مثل رنگ‌های حروف در بازی الفبا) */
     COLORS: ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#54a0ff'],
-
-    /* آیکون‌های ماشین برای صفحه شمارش */
     COUNT_ICONS: ['🚗','🚙','🚕','🚌','🚎','🏎️','🚓','🚑','🚒','🚐','🚚','🚛','🚜'],
 
     /* ============================================================
@@ -35,7 +32,7 @@ const NumberGame = {
     },
 
     /* ============================================================
-       صفحه انتخاب زبان و عدد هدف
+       صفحه انتخاب زبان و عدد
        ============================================================ */
     renderSelector() {
         this.state.isLocked = false;
@@ -60,6 +57,8 @@ const NumberGame = {
         this.el.langList.querySelectorAll('button').forEach(btn => {
             btn.addEventListener('click', () => {
                 this.language = btn.dataset.lang;
+                console.log('زبان تغییر کرد به:', this.language);
+
                 this.el.langList.querySelectorAll('button').forEach(b => {
                     b.classList.toggle('sel', b.dataset.lang === this.language);
                 });
@@ -71,8 +70,14 @@ const NumberGame = {
         this.buildNumberGrid();
     },
 
+    /* ============================================================
+       ساخت شبکه ۱ تا ۲۰ با فونت مناسب زبان
+       ============================================================ */
     buildNumberGrid() {
+        // اعمال کلاس زبان روی کل شبکه (برای فونت و استایل)
+        this.el.numGrid.className = 'letter-grid lang-' + this.language;
         this.el.numGrid.innerHTML = '';
+
         for (let n = 1; n <= 20; n++) {
             const d = document.createElement('div');
             d.className = 'ltr';
@@ -119,7 +124,7 @@ const NumberGame = {
         this.container.innerHTML = `
             <div class="game-area" id="ng-game-area">
                 <p class="instruction" id="ng-instruction"></p>
-                <div class="number-options" id="ng-options"></div>
+                <div class="number-options lang-${this.language}" id="ng-options"></div>
                 <div class="feedback-panel" id="ng-feedback"></div>
             </div>
             <button class="sound-btn" id="ng-sound-btn" title="پخش صدا">🔊</button>
@@ -135,7 +140,7 @@ const NumberGame = {
     },
 
     /* ============================================================
-       نمایش دور جدید: ۵ عدد رنگی شامل عدد هدف
+       نمایش دور جدید
        ============================================================ */
     showNextRound() {
         this.state.isLocked = false;
@@ -160,10 +165,13 @@ const NumberGame = {
     },
 
     /* ============================================================
-       رندر ۵ عدد با رنگ‌های مختلف
+       رندر ۵ عدد با رنگ‌های مختلف و فونت مناسب زبان
        ============================================================ */
     renderOptions() {
+        // اطمینان از اعمال کلاس زبان روی ظرف
+        this.el.options.className = 'number-options lang-' + this.language;
         this.el.options.innerHTML = '';
+
         this.options.forEach((num, idx) => {
             const btn = document.createElement('div');
             btn.className = 'num-btn';
@@ -190,7 +198,7 @@ const NumberGame = {
     },
 
     /* ============================================================
-       پاسخ درست → نمایش صفحه شمارش تمام‌صفحه
+       پاسخ درست → صفحه شمارش
        ============================================================ */
     onCorrect(btnEl) {
         this.state.isLocked = true;
@@ -200,12 +208,11 @@ const NumberGame = {
         btnEl.classList.add('correct');
         this.el.instruction.textContent = 'آفرین! درست بود 🎉';
 
-        // بعد از یک وقفه کوتاه، صفحه شمارش تمام‌صفحه نمایش داده می‌شود
         setTimeout(() => this.showCountScreen(), 400);
     },
 
     /* ============================================================
-       صفحه شمارش تمام‌صفحه
+       صفحه شمارش تمام‌صفحه (با فونت مناسب زبان)
        ============================================================ */
     showCountScreen() {
         const num = this.target;
@@ -224,10 +231,11 @@ const NumberGame = {
         ).join('');
 
         const overlay = document.createElement('div');
-        overlay.className = 'count-overlay';
+        // کلاس زبان روی overlay اعمال می‌شود
+        overlay.className = 'count-overlay lang-' + this.language;
         overlay.innerHTML = `
             <div class="count-number">${this.displayNumber(num)}</div>
-            <div class="count-instruction">آفرین! حالا این ${num} تا ${icon} را بشمار</div>
+            <div class="count-instruction">آفرین! حالا این ${this.displayNumber(num)} تا ${icon} را بشمار</div>
             <div class="count-grid" data-range="${range}" style="grid-template-columns: repeat(${cols}, 1fr);">
                 ${items}
             </div>
@@ -238,16 +246,13 @@ const NumberGame = {
         `;
         document.body.appendChild(overlay);
 
-        // پخش صدای عدد هدف بعد از نمایش
         setTimeout(() => this.playNumberSound(num), 600);
 
-        // دکمه تکرار: همین صفحه با آیکون جدید باز شود
         overlay.querySelector('.btn-repeat').addEventListener('click', () => {
             overlay.remove();
             this.showCountScreen();
         });
 
-        // دکمه تست بعدی: دور جدید با همان عدد هدف
         overlay.querySelector('.btn-next-test').addEventListener('click', () => {
             overlay.remove();
             this.showNextRound();
@@ -282,7 +287,7 @@ const NumberGame = {
     },
 
     /* ============================================================
-       پنل بازخورد (فقط برای پاسخ نادرست)
+       پنل بازخورد
        ============================================================ */
     showFeedback(type, html) {
         this.el.feedback.className = 'feedback-panel show ' + type;
@@ -342,9 +347,6 @@ const NumberGame = {
         if (this.el.gameArea) this.el.gameArea.classList.toggle('shifted', visible);
     },
 
-    /* ============================================================
-       دکمه تغییر عدد (از نوار بالا)
-       ============================================================ */
     onChangeClick() {
         GameShell.disableHint();
         GameShell.disableChange();
