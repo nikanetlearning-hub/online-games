@@ -153,15 +153,15 @@ const ImageService = (() => {
        دریافت تصویر پاداش (ماشین راه‌سازی)
        ============================================================ */
     const REWARD_WIKI_TOPICS = [
-        'Bulldozer',
-        'Excavator',
-        'Road_roller',
-        'Backhoe_loader',
-        'Grader',
-        'Loader_(equipment)',
-        'Crane_(machine)',
-        'Asphalt_paver'
-    ];
+    'Bulldozer', 'Excavator', 'Road_roller', 'Backhoe_loader',
+    'Grader', 'Loader_(equipment)', 'Crane_(machine)',
+    'Tiger', 'Lion', 'Elephant', 'Dolphin', 'Butterfly',
+    'Cat', 'Dog', 'Horse', 'Parrot', 'Peacock',
+    'Rainbow', 'Waterfall', 'Flower', 'Sunset',
+    'Strawberry', 'Watermelon', 'Orange', 'Banana',
+    'Football', 'Basketball', 'Airplane', 'Rocket',
+    'Train', 'Ship', 'Bicycle', 'Motorcycle'
+];
 
     async function getRewardImage() {
         // ۱) بررسی کش
