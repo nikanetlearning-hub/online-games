@@ -21,7 +21,7 @@ const NumberGame = {
     },
 
     COLORS: ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#54a0ff'],
-    COUNT_ICONS: ['🚗','🚙','🚕','🚌','🚎','🏎️','🚓','🚑','🚒','🚐','🚚','🚛','🚜'],
+   
 
     /* ============================================================
        init
@@ -214,29 +214,78 @@ const NumberGame = {
     /* ============================================================
        صفحه شمارش تمام‌صفحه (با فونت مناسب زبان)
        ============================================================ */
+    s    /* ============================================================
+       صفحه شمارش تمام‌صفحه (اندازه هوشمند + تنوع آیکون)
+       ============================================================ */
     showCountScreen() {
         const num = this.target;
-        const icon = this.COUNT_ICONS[Math.floor(Math.random() * this.COUNT_ICONS.length)];
 
-        let cols = 5;
-        if (num <= 3) cols = num;
-        else if (num === 4) cols = 4;
+        // --- انتخاب تصادفی گروه آیکون (نه فقط ماشین) ---
+        const ICON_GROUPS = {
+            cars:    ['🚗','🚙','🚕','🚌','🚎','🏎️','🚓','🚑','🚒','🚐','🚚','🚛','🚜'],
+            fruits:  ['🍎','🍊','🍋','🍇','🍓','🍒','🍑','🍉','🍌','🥝','🍍','🥭','🍐'],
+            animals: ['🐶','🐱','🐭','🐰','🦊','🐻','🐼','🐨','🐯','🦁','🐮','🐷','🐸'],
+            flowers: ['🌸','🌺','🌻','🌹','🌷','🌼','💐','🏵️','🌾','🍀'],
+            sports:  ['⚽','🏀','🏈','⚾','🎾','🏐','🏉','🎱','🏓','🏸'],
+            stars:   ['⭐','🌟','✨','💫','🌠','🌌']
+        };
+        const groupNames = Object.keys(ICON_GROUPS);
+        const chosenGroup = groupNames[Math.floor(Math.random() * groupNames.length)];
+        const iconPool = ICON_GROUPS[chosenGroup];
 
-        let range = 'large';
-        if (num <= 5) range = 'small';
-        else if (num <= 10) range = 'medium';
+        // آیکون هر خانه ممکن است متفاوت باشد (تنوع بیشتر)
+        const items = Array.from({ length: num }, (_, i) => {
+            const icon = iconPool[Math.floor(Math.random() * iconPool.length)];
+            return `<span class="count-item" style="animation-delay: ${i * 0.06}s">${icon}</span>`;
+        }).join('');
 
-        const items = Array.from({ length: num }, (_, i) =>
-            `<span class="count-item" style="animation-delay: ${i * 0.08}s">${icon}</span>`
-        ).join('');
+        // --- محاسبه‌ی اندازه‌ی خودکار بر اساس تعداد ---
+        // هدف: همه بدون اسکرول در صفحه جا شوند
+        let cols, sizeVh, gapVh;
+
+        if (num <= 2) {
+            cols = num;
+            sizeVh = 18;      // اندازه کوچک‌تر تا بزرگ و ضایع نباشد
+            gapVh = 2;
+        } else if (num <= 4) {
+            cols = num;
+            sizeVh = 16;
+            gapVh = 2;
+        } else if (num <= 6) {
+            cols = 3;
+            sizeVh = 13;
+            gapVh = 1.5;
+        } else if (num <= 9) {
+            cols = 3;
+            sizeVh = 11;
+            gapVh = 1.5;
+        } else if (num <= 12) {
+            cols = 4;
+            sizeVh = 10;
+            gapVh = 1.2;
+        } else if (num <= 16) {
+            cols = 4;
+            sizeVh = 9;
+            gapVh = 1;
+        } else { // 17 تا 20
+            cols = 5;
+            sizeVh = 8;
+            gapVh = 0.8;
+        }
 
         const overlay = document.createElement('div');
-        // کلاس زبان روی overlay اعمال می‌شود
         overlay.className = 'count-overlay lang-' + this.language;
         overlay.innerHTML = `
             <div class="count-number">${this.displayNumber(num)}</div>
-            <div class="count-instruction">آفرین! حالا این ${this.displayNumber(num)} تا ${icon} را بشمار</div>
-            <div class="count-grid" data-range="${range}" style="grid-template-columns: repeat(${cols}, 1fr);">
+            <div class="count-instruction">آفرین! حالا این ${this.displayNumber(num)} تا را بشمار</div>
+            <div class="count-grid" style="
+                grid-template-columns: repeat(${cols}, auto);
+                gap: ${gapVh}vh;
+                justify-content: center;
+                align-content: center;
+                max-height: 55vh;
+                overflow: hidden;
+            ">
                 ${items}
             </div>
             <div class="count-actions">
@@ -244,6 +293,13 @@ const NumberGame = {
                 <button class="btn-next-test">تست بعدی ➜</button>
             </div>
         `;
+
+        // اعمال اندازه‌ی داینامیک روی هر آیکون
+        overlay.querySelectorAll('.count-item').forEach(el => {
+            el.style.fontSize = sizeVh + 'vh';
+            el.style.lineHeight = '1';
+        });
+
         document.body.appendChild(overlay);
 
         setTimeout(() => this.playNumberSound(num), 600);
