@@ -496,3 +496,32 @@ body{
     .letter-grid{grid-template-columns:repeat(5,1fr)}
     .sound-btn{width:46px;height:46px;font-size:1.1rem;bottom:14px;left:14px}
 }
+/* ============================================================
+   فونت مناسب برای اعداد فارسی و انگلیسی
+   ============================================================ */
+
+/* اعداد فارسی — از فونت نستعلیق/فارسی استفاده کن */
+.lang-fa .ltr,
+.lang-fa .num-btn,
+.lang-fa .count-number {
+    font-family: 'B Nazanin', 'Vazirmatn', 'Tahoma', sans-serif;
+    font-weight: bold;
+}
+
+/* اعداد انگلیسی — از فونت لاتین استفاده کن تا کاملاً متفاوت دیده شود */
+.lang-en .ltr,
+.lang-en .num-btn,
+.lang-en .count-number {
+    font-family: 'Segoe UI', 'Arial', 'Helvetica', sans-serif;
+    font-weight: 700;
+}
+
+/* در حالت انگلیسی، اعداد کمی بزرگ‌تر و پررنگ‌تر نمایش داده شوند */
+.lang-en .num-btn {
+    font-size: clamp(46px, 9vw, 115px);
+    letter-spacing: 1px;
+}
+
+.lang-en .ltr {
+    font-size: clamp(28px, 4vw, 56px);
+}
