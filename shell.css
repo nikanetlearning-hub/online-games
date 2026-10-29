@@ -364,6 +364,130 @@ body{
         right: 14px;
     }
 }
+/* ===== دکمه تغییر در نوار بالا ===== */
+.topbar button.change {
+    background: #3b82f6;
+    color: #fff;
+}
+.topbar button.change:hover {
+    background: #2563eb;
+}
+
+/* ===== صفحه شمارش تمام‌صفحه (برای بازی اعداد) ===== */
+.count-overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 60%, #16213e 100%);
+    z-index: 300;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(15px, 3vw, 40px);
+    gap: clamp(12px, 2.5vh, 32px);
+    overflow-y: auto;
+}
+
+.count-number {
+    font-size: clamp(80px, 16vw, 200px);
+    font-weight: bold;
+    color: #facc15;
+    line-height: 1;
+    text-shadow: 0 0 40px rgba(250, 204, 21, 0.7),
+                 0 0 80px rgba(250, 204, 21, 0.3);
+    animation: countNumberPop 0.6s ease;
+}
+
+@keyframes countNumberPop {
+    0% { transform: scale(0); opacity: 0; }
+    60% { transform: scale(1.2); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.count-instruction {
+    font-size: clamp(15px, 2.3vw, 26px);
+    color: #e2e8f0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.count-grid {
+    display: grid;
+    gap: clamp(8px, 1.5vw, 20px);
+    justify-content: center;
+    align-items: center;
+    max-width: 92vw;
+    max-height: 50vh;
+    overflow: auto;
+    padding: 10px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.count-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: countAppear 0.35s ease forwards;
+}
+
+@keyframes countAppear {
+    from { transform: scale(0) rotate(-20deg); opacity: 0; }
+    to { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+.count-grid[data-range="small"] .count-item {
+    font-size: clamp(60px, 11vw, 120px);
+}
+.count-grid[data-range="medium"] .count-item {
+    font-size: clamp(50px, 9vw, 100px);
+}
+.count-grid[data-range="large"] .count-item {
+    font-size: clamp(38px, 6.5vw, 72px);
+}
+
+.count-actions {
+    display: flex;
+    gap: clamp(10px, 2vw, 20px);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: clamp(10px, 2vh, 20px);
+}
+
+.count-actions button {
+    padding: clamp(11px, 1.5vw, 17px) clamp(24px, 3.8vw, 44px);
+    border-radius: 14px;
+    border: none;
+    font-size: clamp(14px, 2vw, 22px);
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform .2s;
+    white-space: nowrap;
+}
+
+.count-actions button:hover {
+    transform: scale(1.05);
+}
+
+.count-actions .btn-repeat {
+    background: #3b82f6;
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+}
+.count-actions .btn-repeat:hover {
+    background: #2563eb;
+}
+
+.count-actions .btn-next-test {
+    background: #22c55e;
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4);
+}
+.count-actions .btn-next-test:hover {
+    background: #16a34a;
+}
 /* ===== ریسپانسیو ===== */
 @media(min-width:1920px){.word{font-size:200px}.word.long{font-size:150px}}
 @media(max-width:480px){
