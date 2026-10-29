@@ -4,27 +4,27 @@
 
 const NumberGame = {
     container: null,
-    language: 'fa',           // 'fa' یا 'en'
-    target: 1,                // عدد هدف (1 تا 20)
-    options: [],              // 5 عدد نمایش داده‌شده
+    language: 'fa',
+    target: 1,
+    options: [],
     state: { isLocked: false },
     el: {},
 
-    /* ============================================================
-       اعداد فارسی و انگلیسی
-       ============================================================ */
     numbers: {
         fa: ['۱','۲','۳','۴','۵','۶','۷','۸','۹','۱۰','۱۱','۱۲','۱۳','۱۴','۱۵','۱۶','۱۷','۱۸','۱۹','۲۰'],
         en: ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20']
     },
 
-    /* ============================================================
-       کلمات اعداد برای پخش صدا
-       ============================================================ */
     numberWords: {
         fa: ['یک','دو','سه','چهار','پنج','شش','هفت','هشت','نه','ده','یازده','دوازده','سیزده','چهارده','پانزده','شانزده','هفده','هجده','نوزده','بیست'],
         en: ['one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen','twenty']
     },
+
+    /* رنگ‌های مختلف برای هر عدد (مثل رنگ‌های حروف در بازی الفبا) */
+    COLORS: ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#54a0ff'],
+
+    /* آیکون‌های ماشین برای صفحه شمارش */
+    COUNT_ICONS: ['🚗','🚙','🚕','🚌','🚎','🏎️','🚓','🚑','🚒','🚐','🚚','🚛','🚜'],
 
     /* ============================================================
        init
@@ -35,7 +35,7 @@ const NumberGame = {
     },
 
     /* ============================================================
-       صفحه‌ی انتخاب زبان و عدد هدف
+       صفحه انتخاب زبان و عدد هدف
        ============================================================ */
     renderSelector() {
         this.state.isLocked = false;
@@ -57,7 +57,6 @@ const NumberGame = {
         this.el.numGrid  = document.getElementById('ng-num-grid');
         this.el.startBtn = document.getElementById('ng-start-btn');
 
-        // تغییر زبان
         this.el.langList.querySelectorAll('button').forEach(btn => {
             btn.addEventListener('click', () => {
                 this.language = btn.dataset.lang;
@@ -68,15 +67,10 @@ const NumberGame = {
             });
         });
 
-        // شروع بازی
         this.el.startBtn.addEventListener('click', () => this.startGame());
-
         this.buildNumberGrid();
     },
 
-    /* ============================================================
-       ساخت شبکه‌ی 1 تا 20 در صفحه‌ی انتخاب
-       ============================================================ */
     buildNumberGrid() {
         this.el.numGrid.innerHTML = '';
         for (let n = 1; n <= 20; n++) {
@@ -108,14 +102,12 @@ const NumberGame = {
             { letter: 'زبان', form: 'عدد هدف' }
         );
         GameShell.enableHint(this.displayNumber(this.target));
+        GameShell.enableChange('تغییر عدد');
         this.state.isLocked = false;
         this.renderGameArea();
         this.showNextRound();
     },
 
-    /* ============================================================
-       تبدیل عدد 1-20 به شکل نمایشی
-       ============================================================ */
     displayNumber(n) {
         return this.numbers[this.language][n - 1];
     },
@@ -131,7 +123,6 @@ const NumberGame = {
                 <div class="feedback-panel" id="ng-feedback"></div>
             </div>
             <button class="sound-btn" id="ng-sound-btn" title="پخش صدا">🔊</button>
-            <button class="change-btn" id="ng-change-btn" title="تغییر عدد">⚙️</button>
         `;
 
         this.el.gameArea    = document.getElementById('ng-game-area');
@@ -139,24 +130,17 @@ const NumberGame = {
         this.el.options     = document.getElementById('ng-options');
         this.el.feedback    = document.getElementById('ng-feedback');
         this.el.soundBtn    = document.getElementById('ng-sound-btn');
-        this.el.changeBtn   = document.getElementById('ng-change-btn');
 
         this.el.soundBtn.addEventListener('click', () => this.playNumberSound(this.target));
-        this.el.changeBtn.addEventListener('click', () => {
-            this.state.isLocked = false;
-            this.hideFeedback();
-            this.renderSelector();
-        });
     },
 
     /* ============================================================
-       نمایش دور جدید: ۵ عدد تصادفی شامل عدد هدف
+       نمایش دور جدید: ۵ عدد رنگی شامل عدد هدف
        ============================================================ */
     showNextRound() {
         this.state.isLocked = false;
         this.hideFeedback();
 
-        // ۴ عدد تصادفی غیر از عدد هدف
         const distractors = [];
         while (distractors.length < 4) {
             const r = Math.floor(Math.random() * 20) + 1;
@@ -165,7 +149,6 @@ const NumberGame = {
             }
         }
 
-        // ترکیب و شافل
         const options = [this.target, ...distractors];
         this.shuffle(options);
         this.options = options;
@@ -177,14 +160,15 @@ const NumberGame = {
     },
 
     /* ============================================================
-       رندر ۵ عدد
+       رندر ۵ عدد با رنگ‌های مختلف
        ============================================================ */
     renderOptions() {
         this.el.options.innerHTML = '';
-        this.options.forEach(num => {
+        this.options.forEach((num, idx) => {
             const btn = document.createElement('div');
             btn.className = 'num-btn';
             btn.textContent = this.displayNumber(num);
+            btn.style.color = this.COLORS[idx % this.COLORS.length];
             btn.dataset.num = num;
             btn.addEventListener('click', () => this.onOptionClick(num, btn));
             this.el.options.appendChild(btn);
@@ -196,8 +180,6 @@ const NumberGame = {
        ============================================================ */
     onOptionClick(num, btnEl) {
         if (this.state.isLocked) return;
-
-        // پخش صدای عدد کلیک‌شده
         this.playNumberSound(num);
 
         if (num === this.target) {
@@ -208,7 +190,7 @@ const NumberGame = {
     },
 
     /* ============================================================
-       پاسخ درست
+       پاسخ درست → نمایش صفحه شمارش تمام‌صفحه
        ============================================================ */
     onCorrect(btnEl) {
         this.state.isLocked = true;
@@ -218,19 +200,58 @@ const NumberGame = {
         btnEl.classList.add('correct');
         this.el.instruction.textContent = 'آفرین! درست بود 🎉';
 
-        const praises = [
-            'آفرین! 🌟','عالی بود! ⭐','دقیق و درست! ✅',
-            'بارک‌الله! 👏','هوشمندانه! 🧠','کارت عالیه! 🎉'
-        ];
-        const msg = praises[Math.floor(Math.random() * praises.length)];
+        // بعد از یک وقفه کوتاه، صفحه شمارش تمام‌صفحه نمایش داده می‌شود
+        setTimeout(() => this.showCountScreen(), 400);
+    },
 
-        this.showFeedback('success', `
-            <div class="feedback-praise">${msg}</div>
-            <div class="feedback-buttons">
-                <button class="btn-reward" data-action="reward">🎁 نمایش پاداش</button>
-                <button class="btn-next" data-action="next">عدد بعدی ➜</button>
+    /* ============================================================
+       صفحه شمارش تمام‌صفحه
+       ============================================================ */
+    showCountScreen() {
+        const num = this.target;
+        const icon = this.COUNT_ICONS[Math.floor(Math.random() * this.COUNT_ICONS.length)];
+
+        let cols = 5;
+        if (num <= 3) cols = num;
+        else if (num === 4) cols = 4;
+
+        let range = 'large';
+        if (num <= 5) range = 'small';
+        else if (num <= 10) range = 'medium';
+
+        const items = Array.from({ length: num }, (_, i) =>
+            `<span class="count-item" style="animation-delay: ${i * 0.08}s">${icon}</span>`
+        ).join('');
+
+        const overlay = document.createElement('div');
+        overlay.className = 'count-overlay';
+        overlay.innerHTML = `
+            <div class="count-number">${this.displayNumber(num)}</div>
+            <div class="count-instruction">آفرین! حالا این ${num} تا ${icon} را بشمار</div>
+            <div class="count-grid" data-range="${range}" style="grid-template-columns: repeat(${cols}, 1fr);">
+                ${items}
             </div>
-        `);
+            <div class="count-actions">
+                <button class="btn-repeat">🔄 تکرار</button>
+                <button class="btn-next-test">تست بعدی ➜</button>
+            </div>
+        `;
+        document.body.appendChild(overlay);
+
+        // پخش صدای عدد هدف بعد از نمایش
+        setTimeout(() => this.playNumberSound(num), 600);
+
+        // دکمه تکرار: همین صفحه با آیکون جدید باز شود
+        overlay.querySelector('.btn-repeat').addEventListener('click', () => {
+            overlay.remove();
+            this.showCountScreen();
+        });
+
+        // دکمه تست بعدی: دور جدید با همان عدد هدف
+        overlay.querySelector('.btn-next-test').addEventListener('click', () => {
+            overlay.remove();
+            this.showNextRound();
+        });
     },
 
     /* ============================================================
@@ -261,7 +282,7 @@ const NumberGame = {
     },
 
     /* ============================================================
-       پنل بازخورد
+       پنل بازخورد (فقط برای پاسخ نادرست)
        ============================================================ */
     showFeedback(type, html) {
         this.el.feedback.className = 'feedback-panel show ' + type;
@@ -269,8 +290,7 @@ const NumberGame = {
         this.el.feedback.querySelectorAll('button[data-action]').forEach(btn => {
             btn.addEventListener('click', () => {
                 const action = btn.dataset.action;
-                if (action === 'reward') this.showReward();
-                else if (action === 'next') this.showNextRound();
+                if (action === 'next') this.showNextRound();
                 else if (action === 'retry') this.retryRound();
             });
         });
@@ -308,41 +328,6 @@ const NumberGame = {
     },
 
     /* ============================================================
-       پاداش تمام‌صفحه
-       ============================================================ */
-    async showReward() {
-        const overlay = document.createElement('div');
-        overlay.className = 'reward-overlay';
-        overlay.innerHTML = `
-            <div class="reward-loading">⏳ در حال بارگذاری جایزه...</div>
-            <img style="display:none" alt="جایزه">
-            <div class="reward-text">آفرین ${GameShell.getUserName()}! ⭐ امتیاز: ${GameShell.getScore()}</div>
-            <button class="btn-continue">ادامه ➜</button>
-        `;
-        document.body.appendChild(overlay);
-
-        const img = overlay.querySelector('img');
-        const loading = overlay.querySelector('.reward-loading');
-        const url = await ImageService.getRewardImage();
-
-        if (url) {
-            img.onload = () => {
-                img.style.display = 'block';
-                loading.style.display = 'none';
-            };
-            img.onerror = () => { loading.textContent = '🎉 آفرین! (عکس در دسترس نیست)'; };
-            img.src = url;
-        } else {
-            loading.textContent = '🎉 آفرین! (عکس در دسترس نیست)';
-        }
-
-        overlay.querySelector('.btn-continue').addEventListener('click', () => {
-            overlay.remove();
-            this.showNextRound();
-        });
-    },
-
-    /* ============================================================
        ابزار
        ============================================================ */
     shuffle(array) {
@@ -355,6 +340,17 @@ const NumberGame = {
 
     onHintToggle(visible) {
         if (this.el.gameArea) this.el.gameArea.classList.toggle('shifted', visible);
+    },
+
+    /* ============================================================
+       دکمه تغییر عدد (از نوار بالا)
+       ============================================================ */
+    onChangeClick() {
+        GameShell.disableHint();
+        GameShell.disableChange();
+        this.state.isLocked = false;
+        this.hideFeedback();
+        this.renderSelector();
     }
 };
 
