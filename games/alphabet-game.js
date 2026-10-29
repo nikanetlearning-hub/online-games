@@ -1046,7 +1046,18 @@ const AlphabetGame = {
        ============================================================ */
     onHintToggle(visible) {
         if (this.el.gameArea) this.el.gameArea.classList.toggle('shifted', visible);
+    },
+
+    onChangeClick() {
+        if (window.CSS && CSS.highlights) CSS.highlights.clear();
+        GameShell.disableHint();
+        GameShell.disableChange();
+        this.state.isLocked = false;
+        this.state.usedWords = [];
+        this.hideFeedback();
+        this.renderSelector();
     }
 };
+
 
 GameShell.registerGame(AlphabetGame);
