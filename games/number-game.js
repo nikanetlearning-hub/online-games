@@ -21,7 +21,6 @@ const NumberGame = {
     },
 
     COLORS: ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#54a0ff'],
-   
 
     /* ============================================================
        init
@@ -57,8 +56,6 @@ const NumberGame = {
         this.el.langList.querySelectorAll('button').forEach(btn => {
             btn.addEventListener('click', () => {
                 this.language = btn.dataset.lang;
-                console.log('زبان تغییر کرد به:', this.language);
-
                 this.el.langList.querySelectorAll('button').forEach(b => {
                     b.classList.toggle('sel', b.dataset.lang === this.language);
                 });
@@ -74,7 +71,6 @@ const NumberGame = {
        ساخت شبکه ۱ تا ۲۰ با فونت مناسب زبان
        ============================================================ */
     buildNumberGrid() {
-        // اعمال کلاس زبان روی کل شبکه (برای فونت و استایل)
         this.el.numGrid.className = 'letter-grid lang-' + this.language;
         this.el.numGrid.innerHTML = '';
 
@@ -100,11 +96,10 @@ const NumberGame = {
     startGame() {
         if (!this.target) return;
         GameShell.setScore(0);
-        const langLabel = this.language === 'fa' ? 'فارسی' : 'English';
         GameShell.setGameInfo(
-           null,
-           this.displayNumber(this.target),
-           { form: 'عدد هدف' }
+            null,
+            this.displayNumber(this.target),
+            { form: 'عدد هدف' }
         );
         GameShell.enableHint(this.displayNumber(this.target));
         GameShell.enableChange('تغییر عدد');
@@ -168,7 +163,6 @@ const NumberGame = {
        رندر ۵ عدد با رنگ‌های مختلف و فونت مناسب زبان
        ============================================================ */
     renderOptions() {
-        // اطمینان از اعمال کلاس زبان روی ظرف
         this.el.options.className = 'number-options lang-' + this.language;
         this.el.options.innerHTML = '';
 
@@ -212,15 +206,11 @@ const NumberGame = {
     },
 
     /* ============================================================
-       صفحه شمارش تمام‌صفحه (با فونت مناسب زبان)
-       ============================================================ */
-    s    /* ============================================================
        صفحه شمارش تمام‌صفحه (اندازه هوشمند + تنوع آیکون)
        ============================================================ */
     showCountScreen() {
         const num = this.target;
 
-        // --- انتخاب تصادفی گروه آیکون (نه فقط ماشین) ---
         const ICON_GROUPS = {
             cars:    ['🚗','🚙','🚕','🚌','🚎','🏎️','🚓','🚑','🚒','🚐','🚚','🚛','🚜'],
             fruits:  ['🍎','🍊','🍋','🍇','🍓','🍒','🍑','🍉','🍌','🥝','🍍','🥭','🍐'],
@@ -233,45 +223,19 @@ const NumberGame = {
         const chosenGroup = groupNames[Math.floor(Math.random() * groupNames.length)];
         const iconPool = ICON_GROUPS[chosenGroup];
 
-        // آیکون هر خانه ممکن است متفاوت باشد (تنوع بیشتر)
         const items = Array.from({ length: num }, (_, i) => {
             const icon = iconPool[Math.floor(Math.random() * iconPool.length)];
             return `<span class="count-item" style="animation-delay: ${i * 0.06}s">${icon}</span>`;
         }).join('');
 
-        // --- محاسبه‌ی اندازه‌ی خودکار بر اساس تعداد ---
-        // هدف: همه بدون اسکرول در صفحه جا شوند
         let cols, sizeVh, gapVh;
-
-        if (num <= 2) {
-            cols = num;
-            sizeVh = 18;      // اندازه کوچک‌تر تا بزرگ و ضایع نباشد
-            gapVh = 2;
-        } else if (num <= 4) {
-            cols = num;
-            sizeVh = 16;
-            gapVh = 2;
-        } else if (num <= 6) {
-            cols = 3;
-            sizeVh = 13;
-            gapVh = 1.5;
-        } else if (num <= 9) {
-            cols = 3;
-            sizeVh = 11;
-            gapVh = 1.5;
-        } else if (num <= 12) {
-            cols = 4;
-            sizeVh = 10;
-            gapVh = 1.2;
-        } else if (num <= 16) {
-            cols = 4;
-            sizeVh = 9;
-            gapVh = 1;
-        } else { // 17 تا 20
-            cols = 5;
-            sizeVh = 8;
-            gapVh = 0.8;
-        }
+        if (num <= 2) { cols = num; sizeVh = 18; gapVh = 2; }
+        else if (num <= 4) { cols = num; sizeVh = 16; gapVh = 2; }
+        else if (num <= 6) { cols = 3; sizeVh = 13; gapVh = 1.5; }
+        else if (num <= 9) { cols = 3; sizeVh = 11; gapVh = 1.5; }
+        else if (num <= 12) { cols = 4; sizeVh = 10; gapVh = 1.2; }
+        else if (num <= 16) { cols = 4; sizeVh = 9; gapVh = 1; }
+        else { cols = 5; sizeVh = 8; gapVh = 0.8; }
 
         const overlay = document.createElement('div');
         overlay.className = 'count-overlay lang-' + this.language;
@@ -294,7 +258,6 @@ const NumberGame = {
             </div>
         `;
 
-        // اعمال اندازه‌ی داینامیک روی هر آیکون
         overlay.querySelectorAll('.count-item').forEach(el => {
             el.style.fontSize = sizeVh + 'vh';
             el.style.lineHeight = '1';
