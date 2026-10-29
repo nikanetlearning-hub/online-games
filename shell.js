@@ -1,6 +1,5 @@
 /* ================================================================
    shell.js — پوسته‌ی مشترک همه بازی‌ها
-   مسئول: پروفایل بازیکن، نوار بالا، امتیاز، منوی والدین، بارگذاری بازی
    ================================================================ */
 (function () {
     'use strict';
@@ -42,6 +41,7 @@
                 </div>
                 <div class="actions">
                     <button id="sh-hint-btn" style="display:none">نمایش راهنما</button>
+                    <button id="sh-change-btn" class="change" style="display:none">🔄 تغییر</button>
                     <button id="sh-parent-btn" class="parent">👨‍👩‍👧 والدین</button>
                     <button id="sh-back-btn" class="back">🏠 بازگشت</button>
                 </div>
@@ -70,6 +70,7 @@
         el.formWrap    = document.getElementById('sh-form-wrap');
         el.score       = document.getElementById('sh-score');
         el.hintBtn     = document.getElementById('sh-hint-btn');
+        el.changeBtn   = document.getElementById('sh-change-btn');
         el.parentBtn   = document.getElementById('sh-parent-btn');
         el.hintBanner  = document.getElementById('sh-hint-banner');
         el.hintChr     = document.getElementById('sh-hint-chr');
@@ -119,7 +120,6 @@
 
     function setupProfileModal() {
         renderPlayerList();
-
         el.addPlayerBtn.addEventListener('click', () => {
             const name = el.newNameInput.value.trim();
             if (!name) return;
@@ -127,12 +127,9 @@
             renderPlayerList();
             closeProfileModal();
         });
-
         el.newNameInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') el.addPlayerBtn.click();
         });
-
-        // اگر بازیکن فعلی وجود دارد، مستقیم وارد بازی شو
         const current = PlayerService.getCurrentPlayer();
         if (current) {
             closeProfileModal();
@@ -152,6 +149,12 @@
             el.hintBtn.textContent = state.hintVisible ? 'پنهان کردن راهنما' : 'نمایش راهنما';
             if (state.gameModule && state.gameModule.onHintToggle) {
                 state.gameModule.onHintToggle(state.hintVisible);
+            }
+        });
+
+        el.changeBtn.addEventListener('click', () => {
+            if (state.gameModule && state.gameModule.onChangeClick) {
+                state.gameModule.onChangeClick();
             }
         });
 
@@ -183,7 +186,6 @@
        API عمومی برای بازی‌ها
        ============================================================ */
     window.GameShell = {
-        /* ---------- امتیاز ---------- */
         setScore(n) {
             state.score = Number(n) || 0;
             if (el.score) el.score.textContent = state.score;
@@ -191,20 +193,17 @@
         addScore(n = 1) { this.setScore(state.score + n); },
         getScore() { return state.score; },
 
-        /* ---------- نام کاربر ---------- */
         getUserName() {
             const p = PlayerService.getCurrentPlayer();
             return p ? p.name : 'بازیکن';
         },
 
-        /* ---------- اطلاعات بالای صفحه (پشتیبانی از برچسب سفارشی) ---------- */
         setGameInfo(value1, value2, labels) {
             const l1 = (labels && labels.letter) || 'حرف';
             const l2 = (labels && labels.form) || 'شکل';
 
             if (value1 && el.letterWrap) {
                 el.letterWrap.style.display = '';
-                // به‌روزرسانی متن برچسب (اولین text node)
                 const firstNode = el.letterWrap.firstChild;
                 if (firstNode && firstNode.nodeType === Node.TEXT_NODE) {
                     firstNode.nodeValue = l1 + ': ';
@@ -225,7 +224,6 @@
             if (el.formWrap) el.formWrap.style.display = 'none';
         },
 
-        /* ---------- دکمه راهنما ---------- */
         enableHint(text) {
             if (!el.hintBtn) return;
             el.hintBtn.style.display = '';
@@ -240,7 +238,17 @@
             state.hintVisible = false;
         },
 
-        /* ---------- ثبت ماژول بازی ---------- */
+        /* دکمه تغییر - جدید */
+        enableChange(label) {
+            if (!el.changeBtn) return;
+            el.changeBtn.style.display = '';
+            el.changeBtn.textContent = '🔄 ' + (label || 'تغییر');
+        },
+        disableChange() {
+            if (!el.changeBtn) return;
+            el.changeBtn.style.display = 'none';
+        },
+
         registerGame(module) {
             state.gameModule = module;
             tryStartGame();
@@ -302,10 +310,8 @@
         `;
         document.body.appendChild(overlay);
 
-        // بستن
         overlay.querySelector('#parent-close-btn').addEventListener('click', () => overlay.remove());
 
-        // تب‌ها
         overlay.querySelectorAll('.ptab').forEach(tab => {
             tab.addEventListener('click', () => {
                 overlay.querySelectorAll('.ptab').forEach(t => t.classList.remove('active'));
@@ -317,7 +323,6 @@
             });
         });
 
-        // ذخیره کلمه
         const statusEl = overlay.querySelector('#pw-status');
         overlay.querySelector('#pw-save').addEventListener('click', () => {
             const letter = overlay.querySelector('#pw-letter').value.trim();
@@ -333,7 +338,6 @@
             statusEl.textContent = ok ? '✅ کلمه ذخیره شد' : '⚠️ این کلمه قبلاً ذخیره شده';
         });
 
-        // ضبط صدا
         let recordingWord = '';
         const recordBtn = overlay.querySelector('#pw-record');
         const stopBtn = overlay.querySelector('#pw-stop');
@@ -379,7 +383,6 @@
             return;
         }
 
-        // نام‌های فارسی برای هر بازی
         const gameNames = {
             'alphabet': '🔤 الفبای فارسی',
             'numbers_fa': '🔢 اعداد فارسی',
@@ -401,7 +404,7 @@
     }
 
     /* ============================================================
-       بارگذاری اسکریپت بازی بر اساس ?game=
+       بارگذاری اسکریپت بازی
        ============================================================ */
     function loadGameScript() {
         const params = new URLSearchParams(location.search);
