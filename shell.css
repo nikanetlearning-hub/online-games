@@ -1,22 +1,41 @@
 /* ================================================================
-   shell.css — استایل مشترک همه بازی‌ها
+   shell.css — استایل مشترک همه بازی‌ها (نسخه اصلاح‌شده)
    ================================================================ */
 
 /* ===== Reset ===== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; overflow: hidden; }
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
 
 body {
     background: #0a0a0a;
     color: #fff;
     font-family: 'Vazirmatn', 'Tahoma', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     direction: rtl;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+}
+
+/* مهم: shell-root باید کل صفحه را پر کند */
+#shell-root {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* ظرف بازی باید کل صفحه را پر کند */
+#game-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: clamp(44px, 5.5vh, 60px);
+    position: relative;
 }
 
 /* ===== هایلایت رنگ حروف ===== */
@@ -251,6 +270,7 @@ body {
     padding: 0 clamp(10px, 3vw, 40px);
     text-align: center;
     width: 100%;
+    height: 100%;
 }
 
 .game-area.shifted { transform: translateY(clamp(44px, 7vh, 90px)); }
@@ -486,6 +506,7 @@ body {
     gap: 8px;
     width: 100%;
     height: 100%;
+    max-height: 100vh;
 }
 
 .selector h2 {
