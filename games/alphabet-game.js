@@ -699,16 +699,17 @@ const AlphabetGame = {
     /* ============================================================
        شروع بازی
        ============================================================ */
-    startGame() {
-        if (!this.state.letter || !this.state.form) return;
-        GameShell.setScore(0);
-        GameShell.setGameInfo(this.DB[this.state.letter].display, this.state.form);
-        GameShell.enableHint(this.DB[this.state.letter].display);
-        this.state.usedWords = [];
-        this.state.isLocked = false;
-        this.renderGameArea();
-        this.showNextWord();
-    },
+   startGame() {
+    if (!this.state.letter || !this.state.form) return;
+    GameShell.setScore(0);
+    GameShell.setGameInfo(this.DB[this.state.letter].display, this.state.form);
+    GameShell.enableHint(this.DB[this.state.letter].display);
+    GameShell.enableChange('تغییر حرف');   // ← این خط اضافه شود
+    this.state.usedWords = [];
+    this.state.isLocked = false;
+    this.renderGameArea();
+    this.showNextWord();
+}
 
     /* ============================================================
        ساخت ناحیه بازی
