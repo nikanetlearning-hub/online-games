@@ -1,12 +1,17 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;overflow:hidden}
-body{
-    background:#0a0a0a;color:#fff;
-    font-family:'B Nazanin','Tahoma','Vazirmatn',sans-serif;
-    display:flex;justify-content:center;align-items:center;
-    height:100vh;direction:rtl;
-    touch-action:manipulation;
-    -webkit-tap-highlight-color:transparent;
+body {
+    background: #0a0a0a;
+    color: #fff;
+    /* فونت B Nazanin حذف شد — Vazirmatn جایگزین شد */
+    font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    direction: rtl;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* ===== هایلایت رنگ حروف ===== */
