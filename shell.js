@@ -1,5 +1,6 @@
 /* ================================================================
    shell.js — پوسته‌ی مشترک همه بازی‌ها
+   مسئول: پروفایل بازیکن، نوار بالا، امتیاز، منوی والدین، بارگذاری بازی
    ================================================================ */
 (function () {
     'use strict';
@@ -182,6 +183,7 @@
        API عمومی برای بازی‌ها
        ============================================================ */
     window.GameShell = {
+        /* ---------- امتیاز ---------- */
         setScore(n) {
             state.score = Number(n) || 0;
             if (el.score) el.score.textContent = state.score;
@@ -189,19 +191,33 @@
         addScore(n = 1) { this.setScore(state.score + n); },
         getScore() { return state.score; },
 
+        /* ---------- نام کاربر ---------- */
         getUserName() {
             const p = PlayerService.getCurrentPlayer();
             return p ? p.name : 'بازیکن';
         },
 
-        setGameInfo(letter, form) {
-            if (letter && el.letterWrap) {
+        /* ---------- اطلاعات بالای صفحه (پشتیبانی از برچسب سفارشی) ---------- */
+        setGameInfo(value1, value2, labels) {
+            const l1 = (labels && labels.letter) || 'حرف';
+            const l2 = (labels && labels.form) || 'شکل';
+
+            if (value1 && el.letterWrap) {
                 el.letterWrap.style.display = '';
-                el.letter.textContent = letter;
+                // به‌روزرسانی متن برچسب (اولین text node)
+                const firstNode = el.letterWrap.firstChild;
+                if (firstNode && firstNode.nodeType === Node.TEXT_NODE) {
+                    firstNode.nodeValue = l1 + ': ';
+                }
+                el.letter.textContent = value1;
             }
-            if (form && el.formWrap) {
+            if (value2 && el.formWrap) {
                 el.formWrap.style.display = '';
-                el.form.textContent = form;
+                const firstNode = el.formWrap.firstChild;
+                if (firstNode && firstNode.nodeType === Node.TEXT_NODE) {
+                    firstNode.nodeValue = l2 + ': ';
+                }
+                el.form.textContent = value2;
             }
         },
         clearGameInfo() {
@@ -209,6 +225,7 @@
             if (el.formWrap) el.formWrap.style.display = 'none';
         },
 
+        /* ---------- دکمه راهنما ---------- */
         enableHint(text) {
             if (!el.hintBtn) return;
             el.hintBtn.style.display = '';
@@ -223,6 +240,7 @@
             state.hintVisible = false;
         },
 
+        /* ---------- ثبت ماژول بازی ---------- */
         registerGame(module) {
             state.gameModule = module;
             tryStartGame();
@@ -361,12 +379,20 @@
             return;
         }
 
+        // نام‌های فارسی برای هر بازی
+        const gameNames = {
+            'alphabet': '🔤 الفبای فارسی',
+            'numbers_fa': '🔢 اعداد فارسی',
+            'numbers_en': '🔢 اعداد انگلیسی'
+        };
+
         container.innerHTML = `<h3 style="color:#ffd700;margin-bottom:12px;">📊 آمار ${player.name}</h3>` +
             entries.map(([gameId, s]) => {
                 const accuracy = s.attempts ? ((s.correct / s.attempts) * 100).toFixed(0) : 0;
+                const displayName = gameNames[gameId] || ('🎮 ' + gameId);
                 return `
                     <div class="stats-card">
-                        <h4>🎮 ${gameId}</h4>
+                        <h4>${displayName}</h4>
                         <p>امتیاز: <b>${s.score}</b> | تلاش: ${s.attempts} | درست: ${s.correct} | غلط: ${s.wrong}</p>
                         <p>دقت: <b style="color:${accuracy >= 70 ? '#22c55e' : accuracy >= 40 ? '#f59e0b' : '#ef4444'}">${accuracy}%</b></p>
                     </div>
