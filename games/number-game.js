@@ -102,9 +102,9 @@ const NumberGame = {
         GameShell.setScore(0);
         const langLabel = this.language === 'fa' ? 'فارسی' : 'English';
         GameShell.setGameInfo(
-            langLabel,
-            this.displayNumber(this.target),
-            { letter: 'زبان', form: 'عدد هدف' }
+           null,
+           this.displayNumber(this.target),
+           { form: 'عدد هدف' }
         );
         GameShell.enableHint(this.displayNumber(this.target));
         GameShell.enableChange('تغییر عدد');
