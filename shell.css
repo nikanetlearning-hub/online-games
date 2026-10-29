@@ -500,28 +500,39 @@ body{
    فونت مناسب برای اعداد فارسی و انگلیسی
    ============================================================ */
 
-/* اعداد فارسی — از فونت نستعلیق/فارسی استفاده کن */
+/* اعداد فارسی */
 .lang-fa .ltr,
 .lang-fa .num-btn,
-.lang-fa .count-number {
-    font-family: 'B Nazanin', 'Vazirmatn', 'Tahoma', sans-serif;
+.lang-fa .count-number,
+.lang-fa .count-instruction {
+    font-family: 'B Nazanin', 'Vazirmatn', 'Tahoma', sans-serif !important;
     font-weight: bold;
 }
 
-/* اعداد انگلیسی — از فونت لاتین استفاده کن تا کاملاً متفاوت دیده شود */
+/* اعداد انگلیسی — فونت لاتین با اولویت بالا */
 .lang-en .ltr,
 .lang-en .num-btn,
-.lang-en .count-number {
-    font-family: 'Segoe UI', 'Arial', 'Helvetica', sans-serif;
+.lang-en .count-number,
+.lang-en .count-instruction {
+    font-family: 'Arial', 'Segoe UI', 'Helvetica Neue', 'Helvetica', sans-serif !important;
     font-weight: 700;
+    font-feature-settings: "tnum" !important;
 }
 
-/* در حالت انگلیسی، اعداد کمی بزرگ‌تر و پررنگ‌تر نمایش داده شوند */
+/* اعداد انگلیسی در شبکه انتخاب — اندازه بزرگ‌تر */
+.lang-en .ltr {
+    font-size: clamp(28px, 4vw, 56px) !important;
+    letter-spacing: 0.5px;
+}
+
+/* اعداد انگلیسی در گزینه‌های بازی — بزرگ و پررنگ */
 .lang-en .num-btn {
-    font-size: clamp(46px, 9vw, 115px);
+    font-size: clamp(46px, 9vw, 115px) !important;
     letter-spacing: 1px;
 }
 
-.lang-en .ltr {
-    font-size: clamp(28px, 4vw, 56px);
+/* عدد بزرگ در صفحه شمارش */
+.lang-en .count-number {
+    font-size: clamp(100px, 18vw, 220px) !important;
+    letter-spacing: 2px;
 }
