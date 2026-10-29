@@ -336,4 +336,888 @@ const ALPHABET_DB = {
       { w: 'مریم', i: 2 }, { w: 'تارا', i: 2 }
     ],
     'آخر': [
-      { w: 'ش
+      { w: 'شیر', i: 2, img: 'lion' }, { w: 'مار', i: 2, img: 'snake' },
+      { w: 'مادر', i: 4, img: 'mother' }, { w: 'ابر', i: 2, img: 'cloud' },
+      { w: 'پدر', i: 2, img: 'father' }, { w: 'خر', i: 1, img: 'donkey' },
+      { w: 'سر', i: 1, img: 'head' }, { w: 'دور', i: 2 },
+      { w: 'پار', i: 2 }, { w: 'بور', i: 2 }
+    ]
+  } },
+  'ز': { display: 'ز', forms: [
+    { v: 'اول', l: 'ز اول' },
+    { v: 'وسط', l: 'ز وسط' },
+    { v: 'آخر', l: 'ز آخر' }
+  ], words: {
+    'اول': [
+      { w: 'زنبور', i: 0, img: 'bee' }, { w: 'زبان', i: 0, img: 'tongue' },
+      { w: 'زمین', i: 0, img: 'earth' }, { w: 'زرد', i: 0, img: 'yellow' },
+      { w: 'زالو', i: 0, img: 'leech' }, { w: 'زیتون', i: 0, img: 'olive' },
+      { w: 'زیبا', i: 0, img: 'beautiful' }, { w: 'زحمت', i: 0 },
+      { w: 'زرافه', i: 0, img: 'giraffe' }, { w: 'زنگ', i: 0, img: 'bell' }
+    ],
+    'وسط': [
+      { w: 'آویزان', i: 2, img: 'hanging' }, { w: 'میزان', i: 1 },
+      { w: 'گزارش', i: 1, img: 'report' }, { w: 'بزرگ', i: 1, img: 'big' },
+      { w: 'میز', i: 1, img: 'table' }, { w: 'نیزار', i: 1 }, { w: 'گزیر', i: 1 }
+    ],
+    'آخر': [
+      { w: 'آواز', i: 3, img: 'song' }, { w: 'نماز', i: 3, img: 'prayer' },
+      { w: 'باز', i: 2, img: 'open' }, { w: 'گز', i: 1 },
+      { w: 'ساز', i: 2, img: 'instrument' }, { w: 'راز', i: 2, img: 'secret' },
+      { w: 'ناز', i: 2 }, { w: 'پرواز', i: 4, img: 'flight' }
+    ]
+  } },
+  'ژ': { display: 'ژ', forms: [
+    { v: 'اول', l: 'ژ اول' },
+    { v: 'وسط', l: 'ژ وسط' },
+    { v: 'آخر', l: 'ژ آخر' }
+  ], words: {
+    'اول': [
+      { w: 'ژاله', i: 0 }, { w: 'ژرف', i: 0 },
+      { w: 'ژاپن', i: 0, img: 'japan' }, { w: 'ژولیده', i: 0 }
+    ],
+    'وسط': [
+      { w: 'ویژه', i: 2 }, { w: 'موژان', i: 2 }, { w: 'پژمان', i: 1 }, { w: 'ژوژان', i: 1 }
+    ],
+    'آخر': [
+      { w: 'لژ', i: 1 }, { w: 'دژ', i: 1 }, { w: 'پژ', i: 1 }, { w: 'اژ', i: 1 }
+    ]
+  } },
+  'س': { display: 'س', forms: [
+    { v: 'اول', l: 'س اول (سـ)' },
+    { v: 'وسط', l: 'س وسط (ـسـ)' },
+    { v: 'آخر', l: 'س آخر (ـس)' }
+  ], words: {
+    'اول': [
+      { w: 'سیب', i: 0, img: 'apple' }, { w: 'ستاره', i: 0, img: 'star' },
+      { w: 'سفید', i: 0, img: 'white' }, { w: 'سلام', i: 0, img: 'hello' },
+      { w: 'ساعت', i: 0, img: 'clock' }, { w: 'سلامتی', i: 0 },
+      { w: 'سرما', i: 0, img: 'cold' }, { w: 'سفر', i: 0, img: 'travel' },
+      { w: 'ساده', i: 0, img: 'simple' }, { w: 'سخن', i: 0, img: 'speech' },
+      { w: 'سرباز', i: 0, img: 'soldier' }, { w: 'سماور', i: 0, img: 'samovar' },
+      { w: 'سیاه', i: 0, img: 'black' }, { w: 'سنگر', i: 0 }
+    ],
+    'وسط': [
+      { w: 'افسر', i: 2, img: 'officer' }, { w: 'مسیر', i: 1, img: 'path' },
+      { w: 'آسمان', i: 1, img: 'sky' }, { w: 'پسته', i: 1, img: 'pistachio' },
+      { w: 'دستمال', i: 1, img: 'tissue' }, { w: 'مسجد', i: 1, img: 'mosque' },
+      { w: 'آسان', i: 1, img: 'easy' }, { w: 'پسر', i: 1, img: 'boy' },
+      { w: 'دوست', i: 1, img: 'friend' }, { w: 'رستم', i: 1 }
+    ],
+    'آخر': [
+      { w: 'عروس', i: 3, img: 'bride' }, { w: 'داس', i: 2, img: 'scythe' },
+      { w: 'مس', i: 1, img: 'copper' }, { w: 'کیس', i: 2 }, { w: 'لیس', i: 2 },
+      { w: 'پاس', i: 2 }, { w: 'راس', i: 2 }, { w: 'کاس', i: 2 }
+    ]
+  } },
+  'ش': { display: 'ش', forms: [
+    { v: 'اول', l: 'ش اول (شـ)' },
+    { v: 'وسط', l: 'ش وسط (ـشـ)' },
+    { v: 'آخر', l: 'ش آخر (ـش)' }
+  ], words: {
+    'اول': [
+      { w: 'شهر', i: 0, img: 'city' }, { w: 'شیر', i: 0, img: 'lion' },
+      { w: 'شادی', i: 0, img: 'happiness' }, { w: 'شکار', i: 0, img: 'hunt' },
+      { w: 'شمع', i: 0, img: 'candle' }, { w: 'شکر', i: 0, img: 'sugar' },
+      { w: 'شاهکار', i: 0 }, { w: 'شب', i: 0, img: 'night' },
+      { w: 'شنا', i: 0, img: 'swimming' }, { w: 'شلوغ', i: 0, img: 'crowded' },
+      { w: 'شاگرد', i: 0, img: 'student' }, { w: 'شعر', i: 0, img: 'poem' },
+      { w: 'شیشه', i: 0, img: 'glass' }, { w: 'شکارچی', i: 0, img: 'hunter' }
+    ],
+    'وسط': [
+      { w: 'کشتی', i: 1, img: 'ship' }, { w: 'آشتی', i: 1, img: 'reconciliation' },
+      { w: 'گوشت', i: 2, img: 'meat' }, { w: 'پشمالو', i: 1 },
+      { w: 'دانشمند', i: 3, img: 'scientist' }, { w: 'کوشش', i: 1 },
+      { w: 'آشکار', i: 1 }, { w: 'پشه', i: 1, img: 'mosquito' },
+      { w: 'کشور', i: 1, img: 'country' }, { w: 'شیشه', i: 2, img: 'glass' }
+    ],
+    'آخر': [
+      { w: 'موش', i: 2, img: 'mouse' }, { w: 'آش', i: 1, img: 'soup' },
+      { w: 'کش', i: 1 }, { w: 'ریش', i: 2, img: 'beard' }, { w: 'بیش', i: 2 },
+      { w: 'پیش', i: 2 }, { w: 'دش', i: 1 }, { w: 'گوش', i: 2, img: 'ear' }
+    ]
+  } },
+  'ص': { display: 'ص', forms: [
+    { v: 'اول', l: 'ص اول (صـ)' },
+    { v: 'وسط', l: 'ص وسط (ـصـ)' },
+    { v: 'آخر', l: 'ص آخر (ـص)' }
+  ], words: {
+    'اول': [
+      { w: 'صدف', i: 0, img: 'shell' }, { w: 'صبح', i: 0, img: 'morning' },
+      { w: 'صابون', i: 0, img: 'soap' }, { w: 'صندلی', i: 0, img: 'chair' },
+      { w: 'صداقت', i: 0 }, { w: 'صورت', i: 0, img: 'face' },
+      { w: 'صدا', i: 0, img: 'sound' }, { w: 'صلح', i: 0, img: 'peace' },
+      { w: 'صبحانه', i: 0, img: 'breakfast' }, { w: 'صنعت', i: 0, img: 'industry' }
+    ],
+    'وسط': [
+      { w: 'فصل', i: 2, img: 'season' }, { w: 'عصر', i: 1, img: 'afternoon' },
+      { w: 'نصیب', i: 1 }, { w: 'قصه', i: 1, img: 'story' }, { w: 'بصیر', i: 1 },
+      { w: 'مصیبت', i: 1 }, { w: 'عصا', i: 1, img: 'cane' }
+    ],
+    'آخر': [
+      { w: 'خالص', i: 3, img: 'pure' }, { w: 'قرص', i: 3, img: 'pill' },
+      { w: 'شخص', i: 2, img: 'person' }, { w: 'مخلص', i: 3 },
+      { w: 'رص', i: 1 }, { w: 'قص', i: 1 }, { w: 'عص', i: 1 }
+    ]
+  } },
+  'ض': { display: 'ض', forms: [
+    { v: 'اول', l: 'ض اول (ضـ)' },
+    { v: 'وسط', l: 'ض وسط (ـضـ)' },
+    { v: 'آخر', l: 'ض آخر (ـض)' }
+  ], words: {
+    'اول': [
+      { w: 'ضرب', i: 0, img: 'multiply' }, { w: 'ضامن', i: 0 },
+      { w: 'ضمیر', i: 0 }, { w: 'ضخامت', i: 0 }, { w: 'ضربه', i: 0, img: 'hit' }
+    ],
+    'وسط': [
+      { w: 'عضله', i: 2, img: 'muscle' }, { w: 'مضرب', i: 1 },
+      { w: 'بعضی', i: 2 }, { w: 'مضطرب', i: 1 }, { w: 'مضمون', i: 1 }
+    ],
+    'آخر': [
+      { w: 'مریض', i: 3, img: 'sick' }, { w: 'حوض', i: 2, img: 'pool' },
+      { w: 'عرض', i: 2, img: 'width' }, { w: 'قرض', i: 2, img: 'loan' },
+      { w: 'بعض', i: 2 }
+    ]
+  } },
+  'ط': { display: 'ط', forms: [
+    { v: 'اول', l: 'ط اول' },
+    { v: 'وسط', l: 'ط وسط' },
+    { v: 'آخر', l: 'ط آخر' }
+  ], words: {
+    'اول': [
+      { w: 'طبل', i: 0, img: 'drum' }, { w: 'طوطی', i: 0, img: 'parrot' },
+      { w: 'طلا', i: 0, img: 'gold' }, { w: 'طوفان', i: 0, img: 'storm' },
+      { w: 'طاقچه', i: 0 }, { w: 'طبیب', i: 0, img: 'doctor' },
+      { w: 'طلاق', i: 0 }, { w: 'طناب', i: 0, img: 'rope' }
+    ],
+    'وسط': [
+      { w: 'مطلب', i: 2 }, { w: 'وطن', i: 1, img: 'homeland' },
+      { w: 'بطر', i: 1 }, { w: 'مطرح', i: 2 }, { w: 'قطار', i: 1, img: 'train' },
+      { w: 'بطان', i: 1 }
+    ],
+    'آخر': [
+      { w: 'خط', i: 1, img: 'line' }, { w: 'حیاط', i: 3, img: 'yard' },
+      { w: 'بساط', i: 3 }, { w: 'فراط', i: 3 }, { w: 'غلط', i: 2, img: 'wrong' },
+      { w: 'شرط', i: 2, img: 'condition' }, { w: 'قرط', i: 2 }
+    ]
+  } },
+  'ظ': { display: 'ظ', forms: [
+    { v: 'اول', l: 'ظ اول' },
+    { v: 'وسط', l: 'ظ وسط' },
+    { v: 'آخر', l: 'ظ آخر' }
+  ], words: {
+    'اول': [
+      { w: 'ظرف', i: 0, img: 'dish' }, { w: 'ظهر', i: 0, img: 'noon' },
+      { w: 'ظالم', i: 0 }, { w: 'ظریف', i: 0 }, { w: 'ظهور', i: 0 }
+    ],
+    'وسط': [
+      { w: 'عظیم', i: 2, img: 'great' }, { w: 'نظیر', i: 1 },
+      { w: 'ملظف', i: 2 }, { w: 'منظم', i: 1, img: 'organized' },
+      { w: 'نظافت', i: 1, img: 'cleanliness' }
+    ],
+    'آخر': [
+      { w: 'حافظ', i: 3, img: 'hafez' }, { w: 'حفاظ', i: 3 },
+      { w: 'لحاظ', i: 3 }, { w: 'غلاظ', i: 3 }, { w: 'ملظ', i: 2 }
+    ]
+  } },
+  'ع': { display: 'ع', forms: [
+    { v: 'اول', l: 'ع اول (عـ)' },
+    { v: 'وسط', l: 'ع وسط (ـعـ)' },
+    { v: 'آخر', l: 'ع آخر (ـع)' }
+  ], words: {
+    'اول': [
+      { w: 'عینک', i: 0, img: 'glasses' }, { w: 'عروس', i: 0, img: 'bride' },
+      { w: 'عسل', i: 0, img: 'honey' }, { w: 'عکس', i: 0, img: 'photo' },
+      { w: 'عقاب', i: 0, img: 'eagle' }, { w: 'عطر', i: 0, img: 'perfume' },
+      { w: 'علم', i: 0, img: 'science' }, { w: 'عشق', i: 0, img: 'love' },
+      { w: 'عید', i: 0, img: 'eid' }, { w: 'عجیب', i: 0, img: 'strange' }
+    ],
+    'وسط': [
+      { w: 'جعبه', i: 1, img: 'box' }, { w: 'معلم', i: 1, img: 'teacher' },
+      { w: 'سعادت', i: 1 }, { w: 'طعم', i: 1, img: 'taste' }, { w: 'معرفت', i: 1 },
+      { w: 'بعید', i: 1 }, { w: 'شعر', i: 1, img: 'poem' }
+    ],
+    'آخر': [
+      { w: 'شمع', i: 2, img: 'candle' }, { w: 'شجاع', i: 3, img: 'brave' },
+      { w: 'متاع', i: 3 }, { w: 'باع', i: 2 }, { w: 'منع', i: 2 },
+      { w: 'رفع', i: 2 }, { w: 'جمع', i: 2, img: 'sum' }
+    ]
+  } },
+  'غ': { display: 'غ', forms: [
+    { v: 'اول', l: 'غ اول (غـ)' },
+    { v: 'وسط', l: 'غ وسط (ـغـ)' },
+    { v: 'آخر', l: 'غ آخر (ـغ)' }
+  ], words: {
+    'اول': [
+      { w: 'غار', i: 0, img: 'cave' }, { w: 'غاز', i: 0, img: 'goose' },
+      { w: 'غذا', i: 0, img: 'food' }, { w: 'غروب', i: 0, img: 'sunset' },
+      { w: 'غواص', i: 0, img: 'diver' }, { w: 'غنی', i: 0 },
+      { w: 'غمگین', i: 0, img: 'sad' }, { w: 'غبار', i: 0, img: 'dust' }
+    ],
+    'وسط': [
+      { w: 'لغت', i: 1, img: 'word' }, { w: 'باغچه', i: 1, img: 'garden' },
+      { w: 'مغز', i: 1, img: 'brain' }, { w: 'شغل', i: 1, img: 'job' },
+      { w: 'دغدغه', i: 1 }, { w: 'مغازه', i: 1, img: 'shop' },
+      { w: 'باغبان', i: 1, img: 'gardener' }
+    ],
+    'آخر': [
+      { w: 'تیغ', i: 2, img: 'blade' }, { w: 'باغ', i: 2, img: 'garden' },
+      { w: 'داغ', i: 2 }, { w: 'فراغ', i: 3 }, { w: 'بلاغ', i: 3 },
+      { w: 'صیغ', i: 2 }, { w: 'مغ', i: 1 }
+    ]
+  } },
+  'ف': { display: 'ف', forms: [
+    { v: 'اول', l: 'ف اول (فـ)' },
+    { v: 'وسط', l: 'ف وسط (ـفـ)' },
+    { v: 'آخر', l: 'ف آخر (ـف)' }
+  ], words: {
+    'اول': [
+      { w: 'فکر', i: 0, img: 'thought' }, { w: 'فصل', i: 0, img: 'season' },
+      { w: 'فیل', i: 0, img: 'elephant' }, { w: 'فرش', i: 0, img: 'carpet' },
+      { w: 'فنجان', i: 0, img: 'cup' }, { w: 'فردا', i: 0, img: 'tomorrow' },
+      { w: 'فدا', i: 0 }, { w: 'فهم', i: 0, img: 'understanding' },
+      { w: 'فرزند', i: 0, img: 'child' }, { w: 'فضا', i: 0, img: 'space' }
+    ],
+    'وسط': [
+      { w: 'کلافه', i: 2 }, { w: 'آفتاب', i: 1, img: 'sun' },
+      { w: 'دفتر', i: 1, img: 'notebook' }, { w: 'سفر', i: 1, img: 'travel' },
+      { w: 'آفرین', i: 1 }, { w: 'نفهم', i: 1 }, { w: 'کفش', i: 1, img: 'shoe' },
+      { w: 'آفرینش', i: 1 }
+    ],
+    'آخر': [
+      { w: 'لیف', i: 2, img: 'sponge' }, { w: 'لاف', i: 2 },
+      { w: 'کیف', i: 2, img: 'bag' }, { w: 'صاف', i: 2, img: 'smooth' },
+      { w: 'خف', i: 1 }, { w: 'عف', i: 1 }, { w: 'صوف', i: 2 }
+    ]
+  } },
+  'ق': { display: 'ق', forms: [
+    { v: 'اول', l: 'ق اول (قـ)' },
+    { v: 'وسط', l: 'ق وسط (ـقـ)' },
+    { v: 'آخر', l: 'ق آخر (ـق)' }
+  ], words: {
+    'اول': [
+      { w: 'قند', i: 0, img: 'sugar' }, { w: 'قاشق', i: 0, img: 'spoon' },
+      { w: 'قورباغه', i: 0, img: 'frog' }, { w: 'قشنگ', i: 0, img: 'beautiful' },
+      { w: 'قلم', i: 0, img: 'pen' }, { w: 'قمری', i: 0 },
+      { w: 'قدرت', i: 0, img: 'power' }, { w: 'قصه', i: 0, img: 'story' },
+      { w: 'قهرمان', i: 0, img: 'hero' }, { w: 'قنداق', i: 0 }
+    ],
+    'وسط': [
+      { w: 'نقاشی', i: 1, img: 'painting' }, { w: 'شقیقه', i: 1 },
+      { w: 'آقای', i: 1, img: 'mister' }, { w: 'نقطه', i: 1, img: 'dot' },
+      { w: 'دقیقه', i: 1, img: 'minute' }, { w: 'بقیه', i: 1 },
+      { w: 'نقشه', i: 1, img: 'map' }
+    ],
+    'آخر': [
+      { w: 'اجاق', i: 3, img: 'stove' }, { w: 'اتاق', i: 3, img: 'room' },
+      { w: 'برق', i: 2, img: 'electricity' }, { w: 'خلق', i: 2 },
+      { w: 'دوق', i: 2 }, { w: 'حق', i: 1, img: 'right' }, { w: 'دق', i: 1 }
+    ]
+  } },
+  'ک': { display: 'ک', forms: [
+    { v: 'اول', l: 'ک اول (کـ)' },
+    { v: 'وسط', l: 'ک وسط (ـکـ)' },
+    { v: 'آخر', l: 'ک آخر (ـک)' }
+  ], words: {
+    'اول': [
+      { w: 'کتاب', i: 0, img: 'book' }, { w: 'کبوتر', i: 0, img: 'pigeon' },
+      { w: 'کوه', i: 0, img: 'mountain' }, { w: 'کلاس', i: 0, img: 'class' },
+      { w: 'کفش', i: 0, img: 'shoe' }, { w: 'کشور', i: 0, img: 'country' },
+      { w: 'کمک', i: 0, img: 'help' }, { w: 'کاغذ', i: 0, img: 'paper' },
+      { w: 'کوهستان', i: 0, img: 'mountains' }, { w: 'کیک', i: 0, img: 'cake' },
+      { w: 'کلید', i: 0, img: 'key' }
+    ],
+    'وسط': [
+      { w: 'شکر', i: 1, img: 'sugar' }, { w: 'مکارم', i: 1 }, { w: 'پاکار', i: 2 },
+      { w: 'نکته', i: 1 }, { w: 'بکارت', i: 1 }, { w: 'تکیه', i: 1 },
+      { w: 'مکتب', i: 1, img: 'school' }, { w: 'سکوت', i: 1, img: 'silence' }
+    ],
+    'آخر': [
+      { w: 'نمک', i: 3, img: 'salt' }, { w: 'خاک', i: 3, img: 'soil' },
+      { w: 'کمک', i: 3, img: 'help' }, { w: 'رنگینک', i: 5 },
+      { w: 'مالک', i: 3 }, { w: 'پاک', i: 2, img: 'clean' },
+      { w: 'تک', i: 1 }, { w: 'شک', i: 1 }
+    ]
+  } },
+  'گ': { display: 'گ', forms: [
+    { v: 'اول', l: 'گ اول (گـ)' },
+    { v: 'وسط', l: 'گ وسط (ـگـ)' },
+    { v: 'آخر', l: 'گ آخر (ـگ)' }
+  ], words: {
+    'اول': [
+      { w: 'گوساله', i: 0, img: 'calf' }, { w: 'گل', i: 0, img: 'flower' },
+      { w: 'گربه', i: 0, img: 'cat' }, { w: 'گرگ', i: 0, img: 'wolf' },
+      { w: 'گوش', i: 0, img: 'ear' }, { w: 'گندم', i: 0, img: 'wheat' },
+      { w: 'گنجشک', i: 0, img: 'sparrow' }, { w: 'گفتار', i: 0 },
+      { w: 'گناه', i: 0, img: 'sin' }, { w: 'گرم', i: 0, img: 'hot' }
+    ],
+    'وسط': [
+      { w: 'انگور', i: 2, img: 'grape' }, { w: 'بگشا', i: 1 }, { w: 'مگر', i: 1 },
+      { w: 'نگار', i: 1 }, { w: 'آگهی', i: 1, img: 'advertisement' },
+      { w: 'بگم', i: 1 }, { w: 'نگین', i: 1, img: 'gem' }, { w: 'تگرگ', i: 1, img: 'hail' }
+    ],
+    'آخر': [
+      { w: 'سگ', i: 1, img: 'dog' }, { w: 'برگ', i: 2, img: 'leaf' },
+      { w: 'مرگ', i: 2, img: 'death' }, { w: 'بگ', i: 1 }, { w: 'رگ', i: 1, img: 'vein' },
+      { w: 'تگ', i: 1 }, { w: 'گنگ', i: 2 }
+    ]
+  } },
+  'ل': { display: 'ل', forms: [
+    { v: 'اول', l: 'ل اول (لـ)' },
+    { v: 'وسط', l: 'ل وسط (ـلـ)' },
+    { v: 'آخر', l: 'ل آخر (ـل)' }
+  ], words: {
+    'اول': [
+      { w: 'لاله', i: 0, img: 'tulip' }, { w: 'لب', i: 0, img: 'lip' },
+      { w: 'لانه', i: 0, img: 'nest' }, { w: 'لیوان', i: 0, img: 'glass' },
+      { w: 'لواش', i: 0, img: 'lavash' }, { w: 'لحاف', i: 0, img: 'quilt' },
+      { w: 'لامپ', i: 0, img: 'lamp' }, { w: 'لباس', i: 0, img: 'clothes' },
+      { w: 'لذت', i: 0, img: 'pleasure' }, { w: 'لطف', i: 0, img: 'kindness' }
+    ],
+    'وسط': [
+      { w: 'البرز', i: 1, img: 'alborz' }, { w: 'ملخ', i: 1, img: 'grasshopper' },
+      { w: 'کلاس', i: 2, img: 'class' }, { w: 'بلبل', i: 2, img: 'nightingale' },
+      { w: 'گلابی', i: 1, img: 'pear' }, { w: 'مثلث', i: 1, img: 'triangle' },
+      { w: 'شلوغ', i: 1, img: 'crowded' }, { w: 'سلیقه', i: 1, img: 'taste' }
+    ],
+    'آخر': [
+      { w: 'گل', i: 1, img: 'flower' }, { w: 'خال', i: 2, img: 'mole' },
+      { w: 'شال', i: 2, img: 'shawl' }, { w: 'بال', i: 2, img: 'wing' },
+      { w: 'دل', i: 1, img: 'heart' }, { w: 'مل', i: 1 },
+      { w: 'قفل', i: 3, img: 'lock' }, { w: 'قبل', i: 3, img: 'before' }
+    ]
+  } },
+  'م': { display: 'م', forms: [
+    { v: 'اول', l: 'م اول (مـ)' },
+    { v: 'وسط', l: 'م وسط (ـمـ)' },
+    { v: 'آخر', l: 'م آخر (ـم)' }
+  ], words: {
+    'اول': [
+      { w: 'مادر', i: 0, img: 'mother' }, { w: 'ماهی', i: 0, img: 'fish' },
+      { w: 'مدرسه', i: 0, img: 'school' }, { w: 'مهر', i: 0, img: 'kindness' },
+      { w: 'میز', i: 0, img: 'table' }, { w: 'منزل', i: 0, img: 'home' },
+      { w: 'مردم', i: 0, img: 'people' }, { w: 'مثل', i: 0 },
+      { w: 'ملخ', i: 0, img: 'grasshopper' }, { w: 'مقدار', i: 0, img: 'amount' },
+      { w: 'موش', i: 0, img: 'mouse' }, { w: 'ماشین', i: 0, img: 'car' }
+    ],
+    'وسط': [
+      { w: 'عمیق', i: 1, img: 'deep' }, { w: 'نمک', i: 1, img: 'salt' },
+      { w: 'شمع', i: 1, img: 'candle' }, { w: 'قمری', i: 1 },
+      { w: 'کمال', i: 1, img: 'perfection' }, { w: 'آسمان', i: 1, img: 'sky' },
+      { w: 'زمین', i: 1, img: 'earth' }, { w: 'کمان', i: 1, img: 'bow' }
+    ],
+    'آخر': [
+      { w: 'نسیم', i: 3, img: 'breeze' }, { w: 'خام', i: 2, img: 'raw' },
+      { w: 'شام', i: 2, img: 'dinner' }, { w: 'بام', i: 2, img: 'roof' },
+      { w: 'دام', i: 2, img: 'trap' }, { w: 'غم', i: 2, img: 'sorrow' }, { w: 'رم', i: 1 }
+    ]
+  } },
+  'ن': { display: 'ن', forms: [
+    { v: 'اول', l: 'ن اول (نـ)' },
+    { v: 'وسط', l: 'ن وسط (ـنـ)' },
+    { v: 'آخر', l: 'ن آخر (ـن)' }
+  ], words: {
+    'اول': [
+      { w: 'نان', i: 0, img: 'bread' }, { w: 'نمک', i: 0, img: 'salt' },
+      { w: 'نور', i: 0, img: 'light' }, { w: 'نگار', i: 0 },
+      { w: 'نهال', i: 0, img: 'sapling' }, { w: 'نقاشی', i: 0, img: 'painting' },
+      { w: 'نام', i: 0, img: 'name' }, { w: 'ناز', i: 0 },
+      { w: 'نفس', i: 0, img: 'breath' }, { w: 'نیمکت', i: 0, img: 'bench' },
+      { w: 'نوک', i: 0, img: 'tip' }, { w: 'نبات', i: 0, img: 'candy' }
+    ],
+    'وسط': [
+      { w: 'پنیر', i: 1, img: 'cheese' }, { w: 'منزل', i: 1, img: 'home' },
+      { w: 'خونه', i: 2, img: 'house' }, { w: 'دانا', i: 1, img: 'wise' },
+      { w: 'سنگ', i: 1, img: 'stone' }, { w: 'آسمان', i: 2, img: 'sky' },
+      { w: 'بهانه', i: 2 }, { w: 'سفینه', i: 2, img: 'spaceship' }
+    ],
+    'آخر': [
+      { w: 'من', i: 1 }, { w: 'کمان', i: 3, img: 'bow' },
+      { w: 'زبان', i: 3, img: 'tongue' }, { w: 'آسمان', i: 4, img: 'sky' },
+      { w: 'خوان', i: 3 }, { w: 'نان', i: 2, img: 'bread' },
+      { w: 'فن', i: 1, img: 'art' }, { w: 'بن', i: 1 }
+    ]
+  } },
+  'و': { display: 'و', forms: [
+    { v: 'اول', l: 'و اول' },
+    { v: 'وسط', l: 'و وسط' },
+    { v: 'آخر', l: 'و آخر' }
+  ], words: {
+    'اول': [
+      { w: 'ورزش', i: 0, img: 'sport' }, { w: 'وسط', i: 0, img: 'middle' },
+      { w: 'وقت', i: 0, img: 'time' }, { w: 'وقتی', i: 0 }, { w: 'ولی', i: 0 },
+      { w: 'وزیر', i: 0, img: 'minister' }, { w: 'وجود', i: 0 },
+      { w: 'وطن', i: 0, img: 'homeland' }
+    ],
+    'وسط': [
+      { w: 'شلوار', i: 2, img: 'pants' }, { w: 'نوکر', i: 1 },
+      { w: 'دوران', i: 1, img: 'era' }, { w: 'کوهستان', i: 1, img: 'mountains' },
+      { w: 'دوست', i: 1, img: 'friend' }, { w: 'بوفالو', i: 2 },
+      { w: 'پروانه', i: 2, img: 'butterfly' }
+    ],
+    'آخر': [
+      { w: 'جارو', i: 3, img: 'broom' }, { w: 'مو', i: 1, img: 'hair' },
+      { w: 'نو', i: 1, img: 'new' }, { w: 'دو', i: 1, img: 'two' },
+      { w: 'تو', i: 1 }, { w: 'او', i: 1 }, { w: 'رو', i: 1 }, { w: 'سو', i: 1 }
+    ]
+  } },
+  'ه': { display: 'ه', forms: [
+    { v: 'اول', l: 'ه اول (هـ)' },
+    { v: 'وسط', l: 'ه وسط (ـهـ)' },
+    { v: 'آخر', l: 'ه آخر (ـه / ه)' }
+  ], words: {
+    'اول': [
+      { w: 'هوا', i: 0, img: 'air' }, { w: 'هلال', i: 0, img: 'crescent' },
+      { w: 'هفت', i: 0, img: 'seven' }, { w: 'همسایه', i: 0, img: 'neighbor' },
+      { w: 'هندوانه', i: 0, img: 'watermelon' }, { w: 'هدف', i: 0, img: 'target' },
+      { w: 'هور', i: 0 }, { w: 'هزار', i: 0, img: 'thousand' }
+    ],
+    'وسط': [
+      { w: 'مهر', i: 1, img: 'kindness' }, { w: 'شهر', i: 1, img: 'city' },
+      { w: 'بهار', i: 1, img: 'spring' }, { w: 'چهار', i: 1, img: 'four' },
+      { w: 'دهان', i: 1, img: 'mouth' }, { w: 'ماهی', i: 1, img: 'fish' },
+      { w: 'شهرزاد', i: 1 }, { w: 'کوهستان', i: 2, img: 'mountains' }
+    ],
+    'آخر': [
+      { w: 'خانه', i: 3, img: 'house' }, { w: 'ماه', i: 2, img: 'moon' },
+      { w: 'راه', i: 2, img: 'road' }, { w: 'شبیه', i: 3, img: 'similar' },
+      { w: 'به', i: 1, img: 'to' }, { w: 'ده', i: 1, img: 'ten' },
+      { w: 'سه', i: 2, img: 'three' }, { w: 'گله', i: 3, img: 'herd' }
+    ]
+  } },
+  'ی': { display: 'ی', forms: [
+    { v: 'اول', l: 'ی اول (یـ)' },
+    { v: 'وسط', l: 'ی وسط (ـیـ)' },
+    { v: 'آخر', l: 'ی آخر (ـی)' }
+  ], words: {
+    'اول': [
+      { w: 'یار', i: 0, img: 'friend' }, { w: 'یاس', i: 0, img: 'jasmine' },
+      { w: 'یک', i: 0, img: 'one' }, { w: 'یخچال', i: 0, img: 'fridge' },
+      { w: 'یلدا', i: 0, img: 'yalda' }, { w: 'یاد', i: 0, img: 'memory' },
+      { w: 'یکتا', i: 0 }, { w: 'یقین', i: 0, img: 'certainty' }
+    ],
+    'وسط': [
+      { w: 'شیر', i: 1, img: 'lion' }, { w: 'بینی', i: 1, img: 'nose' },
+      { w: 'سیب', i: 1, img: 'apple' }, { w: 'پنیر', i: 2, img: 'cheese' },
+      { w: 'سفید', i: 2, img: 'white' }, { w: 'میز', i: 1, img: 'table' },
+      { w: 'دنیا', i: 2, img: 'world' }, { w: 'بیابان', i: 1, img: 'desert' }
+    ],
+    'آخر': [
+      { w: 'روسی', i: 3, img: 'russian' }, { w: 'ایرانی', i: 5, img: 'iranian' },
+      { w: 'دنیایی', i: 5 }, { w: 'خوبی', i: 3 }, { w: 'سی', i: 1, img: 'thirty' },
+      { w: 'دی', i: 1 }, { w: 'می', i: 1 }, { w: 'پی', i: 1 }
+    ]
+  } }
+};
+
+const AlphabetGame = {
+    DB: JSON.parse(JSON.stringify(ALPHABET_DB)),
+    container: null,
+    state: { letter: '', form: '', wordData: null, usedWords: [], isLocked: false },
+    el: {},
+
+    init(container) {
+        this.container = container;
+        this.mergeCustomWords();
+        this.renderSelector();
+    },
+
+    mergeCustomWords() {
+        const custom = ParentService.getCustomWords();
+        Object.keys(custom).forEach(key => {
+            const parts = key.split('|');
+            const letter = parts[0];
+            const form = parts[1];
+            if (!this.DB[letter]) return;
+            if (!this.DB[letter].words[form]) this.DB[letter].words[form] = [];
+            custom[key].forEach(item => {
+                if (!this.DB[letter].words[form].some(w => w.w === item.w)) {
+                    this.DB[letter].words[form].push(Object.assign({}, item));
+                }
+            });
+        });
+    },
+
+    renderSelector() {
+        this.container.innerHTML = ''
+            + '<div class="selector">'
+            +   '<h2>انتخاب حرف و شکل برای آموزش</h2>'
+            +   '<h3>۱) حرف را انتخاب کنید:</h3>'
+            +   '<div class="letter-grid" id="ag-letter-grid"></div>'
+            +   '<h3>۲) شکل حرف را انتخاب کنید:</h3>'
+            +   '<div class="form-list" id="ag-form-list"></div>'
+            +   '<button class="start-btn" id="ag-start-btn" disabled>شروع بازی</button>'
+            + '</div>';
+
+        this.el.letterGrid = document.getElementById('ag-letter-grid');
+        this.el.formList   = document.getElementById('ag-form-list');
+        this.el.startBtn   = document.getElementById('ag-start-btn');
+
+        this.buildLetterGrid();
+        this.el.startBtn.addEventListener('click', () => this.startGame());
+    },
+
+    buildLetterGrid() {
+        this.el.letterGrid.innerHTML = '';
+        Object.keys(this.DB).forEach(key => {
+            const d = document.createElement('div');
+            d.className = 'ltr';
+            d.textContent = this.DB[key].display;
+            d.dataset.key = key;
+            d.addEventListener('click', () => this.selectLetter(key));
+            this.el.letterGrid.appendChild(d);
+        });
+    },
+
+    selectLetter(key) {
+        this.state.letter = key;
+        this.state.form = '';
+        this.el.letterGrid.querySelectorAll('.ltr').forEach(el => {
+            el.classList.toggle('sel', el.dataset.key === key);
+        });
+        this.buildFormList(key);
+        this.el.startBtn.disabled = true;
+    },
+
+    buildFormList(key) {
+        this.el.formList.innerHTML = '';
+        this.DB[key].forms.forEach(f => {
+            const b = document.createElement('button');
+            b.textContent = f.l;
+            b.dataset.v = f.v;
+            b.addEventListener('click', () => {
+                this.state.form = f.v;
+                this.el.formList.querySelectorAll('button').forEach(x => {
+                    x.classList.toggle('sel', x.dataset.v === f.v);
+                });
+                this.el.startBtn.disabled = false;
+            });
+            this.el.formList.appendChild(b);
+        });
+    },
+
+    startGame() {
+        if (!this.state.letter || !this.state.form) return;
+        GameShell.setScore(0);
+        GameShell.setGameInfo(this.DB[this.state.letter].display, this.state.form);
+        GameShell.enableHint(this.DB[this.state.letter].display);
+        GameShell.enableChange('تغییر حرف');
+        this.state.usedWords = [];
+        this.state.isLocked = false;
+        this.renderGameArea();
+        this.showNextWord();
+    },
+
+    renderGameArea() {
+        this.container.innerHTML = ''
+            + '<div class="game-area" id="ag-game-area">'
+            +   '<p class="instruction" id="ag-instruction"></p>'
+            +   '<div class="word" id="ag-word"></div>'
+            +   '<div class="word-image-container" id="ag-word-img"></div>'
+            +   '<div class="feedback-panel" id="ag-feedback"></div>'
+            + '</div>'
+            + '<button class="sound-btn" id="ag-sound-btn" title="پخش صدا">🔊</button>';
+
+        this.el.gameArea    = document.getElementById('ag-game-area');
+        this.el.instruction = document.getElementById('ag-instruction');
+        this.el.word        = document.getElementById('ag-word');
+        this.el.wordImg     = document.getElementById('ag-word-img');
+        this.el.feedback    = document.getElementById('ag-feedback');
+        this.el.soundBtn    = document.getElementById('ag-sound-btn');
+
+        this.el.word.addEventListener('click', (e) => this.onWordClick(e));
+        this.el.soundBtn.addEventListener('click', () => this.playWordSound());
+    },
+
+    showNextWord() {
+        this.state.isLocked = false;
+        this.hideFeedback();
+        if (window.CSS && CSS.highlights) CSS.highlights.clear();
+
+        const pool = this.DB[this.state.letter].words[this.state.form];
+        if (!pool || pool.length === 0) {
+            this.el.instruction.textContent = 'کلمه‌ای یافت نشد.';
+            return;
+        }
+
+        let avail = pool.filter(w => !this.state.usedWords.includes(w.w));
+        if (avail.length === 0) {
+            this.state.usedWords = [];
+            avail = pool;
+        }
+        const pick = avail[Math.floor(Math.random() * avail.length)];
+        this.state.usedWords.push(pick.w);
+        this.state.wordData = pick;
+
+        this.el.instruction.textContent =
+            'حرف «' + this.DB[this.state.letter].display + '» را در کلمه پیدا کن';
+
+        this.renderWord(pick.w);
+        this.loadWordImage(pick);
+    },
+
+    renderWord(word) {
+        this.el.word.classList.remove('long');
+        if (word.length > 6) this.el.word.classList.add('long');
+        this.el.word.textContent = word;
+
+        if (!(window.CSS && CSS.highlights && window.Highlight)) return;
+
+        const textNode = this.el.word.firstChild;
+        if (!textNode || textNode.nodeType !== Node.TEXT_NODE) return;
+
+        for (let i = 0; i < word.length; i++) {
+            const range = document.createRange();
+            range.setStart(textNode, i);
+            range.setEnd(textNode, i + 1);
+            CSS.highlights.set('cc' + i, new Highlight(range));
+        }
+    },
+
+    async loadWordImage(wordData) {
+        const container = this.el.wordImg;
+        container.innerHTML = '<p class="img-loading">⏳ در حال بارگذاری تصویر...</p>';
+
+        const keyword = wordData.img || wordData.w;
+        const url = await ImageService.getWordImage(keyword);
+
+        if (!url) {
+            container.innerHTML = '<p class="img-error">🖼️ تصویر پیدا نشد</p>';
+            return;
+        }
+
+        const img = new Image();
+        img.onload = () => {
+            img.alt = wordData.w;
+            img.className = 'word-img';
+            container.innerHTML = '';
+            container.appendChild(img);
+        };
+        img.onerror = () => {
+            container.innerHTML = '<p class="img-error">🖼️ تصویر پیدا نشد</p>';
+        };
+        img.src = url;
+    },
+
+    async playWordSound() {
+        const word = this.state.wordData && this.state.wordData.w;
+        if (!word) return;
+
+        const blob = await ParentService.getRecording(word);
+        if (blob) {
+            const audio = new Audio(URL.createObjectURL(blob));
+            audio.play();
+            return;
+        }
+
+        if ('speechSynthesis' in window) {
+            speechSynthesis.cancel();
+            const u = new SpeechSynthesisUtterance(word);
+            u.lang = 'fa-IR';
+            u.rate = 0.85;
+            speechSynthesis.speak(u);
+        }
+    },
+
+    onWordClick(event) {
+        if (this.state.isLocked || !this.state.wordData) return;
+        const idx = this.getClickedCharIndex(event);
+        if (idx === -1) return;
+
+        if (idx === this.state.wordData.i) this.onCorrect(idx);
+        else this.onWrong(idx);
+    },
+
+    getClickedCharIndex(event) {
+        const textNode = this.el.word.firstChild;
+        if (!textNode || textNode.nodeType !== Node.TEXT_NODE) return -1;
+        const text = textNode.textContent;
+
+        if (document.caretPositionFromPoint) {
+            const pos = document.caretPositionFromPoint(event.clientX, event.clientY);
+            if (pos && pos.offsetNode === textNode) {
+                const off = pos.offset;
+                for (const cand of [off, off - 1]) {
+                    if (cand >= 0 && cand < text.length) {
+                        const r = document.createRange();
+                        r.setStart(textNode, cand);
+                        r.setEnd(textNode, cand + 1);
+                        const rect = r.getBoundingClientRect();
+                        if (event.clientX >= rect.left - 2 && event.clientX <= rect.right + 2 &&
+                            event.clientY >= rect.top - 2 && event.clientY <= rect.bottom + 2) {
+                            return cand;
+                        }
+                    }
+                }
+            }
+        }
+
+        for (let i = 0; i < text.length; i++) {
+            const range = document.createRange();
+            range.setStart(textNode, i);
+            range.setEnd(textNode, i + 1);
+            const rect = range.getBoundingClientRect();
+            if (rect.width > 0 && rect.height > 0 &&
+                event.clientX >= rect.left && event.clientX <= rect.right &&
+                event.clientY >= rect.top && event.clientY <= rect.bottom) {
+                return i;
+            }
+        }
+        return -1;
+    },
+
+    onCorrect(idx) {
+        this.state.isLocked = true;
+        GameShell.addScore(1);
+        PlayerService.recordAnswer('alphabet', true);
+
+        this.highlightFound(idx);
+        this.el.word.classList.add('pop');
+        this.el.instruction.textContent = 'آفرین! می‌خوای جایزه ببینی یا کلمه بعدی؟';
+
+        const praises = [
+            'آفرین! 🌟', 'عالی بود! ⭐', 'دقیق و درست! ✅',
+            'بارک‌الله! 👏', 'هوشمندانه! 🧠', 'کارت عالیه! 🎉'
+        ];
+        const msg = praises[Math.floor(Math.random() * praises.length)];
+
+        this.showFeedback('success',
+            '<div class="feedback-praise">' + msg + '</div>' +
+            '<div class="feedback-buttons">' +
+                '<button class="btn-reward" data-action="reward">🎁 نمایش پاداش</button>' +
+                '<button class="btn-next" data-action="next">کلمه بعدی ➜</button>' +
+            '</div>'
+        );
+    },
+
+    onWrong(idx) {
+        PlayerService.recordAnswer('alphabet', false);
+
+        this.flashWrong(idx);
+        this.el.word.classList.add('shake');
+        setTimeout(() => this.el.word.classList.remove('shake'), 450);
+
+        const form = this.state.form;
+        let pos = 'در کلمه';
+        if (form.includes('اول') || form === 'اول') pos = 'در اول کلمه';
+        else if (form.includes('وسط') || form === 'وسط') pos = 'در وسط کلمه';
+        else if (form.includes('آخر') || form === 'آخر') pos = 'در آخر کلمه';
+
+        const letter = this.DB[this.state.letter].display;
+        const edu = 'دقت کن! حرف «' + letter + '» ' + pos + ' قرار داره';
+
+        const encourages = [
+            'دوباره تلاش کن! 💪', 'تو میتونی! 🌟', 'نزدیک بود! ✨',
+            'با دقت بیشتر! 🎯', 'نگران نباش، دوباره بگرد! 🔍'
+        ];
+        const enc = encourages[Math.floor(Math.random() * encourages.length)];
+
+        this.showFeedback('wrong',
+            '<div class="feedback-edu">' + edu + '</div>' +
+            '<div class="feedback-encourage">' + enc + '</div>' +
+            '<div class="feedback-buttons">' +
+                '<button class="btn-retry" data-action="retry">🔄 تکرار کلمه</button>' +
+                '<button class="btn-next" data-action="next">➡️ کلمه بعدی</button>' +
+            '</div>'
+        );
+    },
+
+    showFeedback(type, html) {
+        this.el.feedback.className = 'feedback-panel show ' + type;
+        this.el.feedback.innerHTML = html;
+        this.el.feedback.querySelectorAll('button[data-action]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const action = btn.dataset.action;
+                if (action === 'reward') this.showReward();
+                else if (action === 'next') this.showNextWord();
+                else if (action === 'retry') this.retryWord();
+            });
+        });
+    },
+
+    hideFeedback() {
+        if (this.el.feedback) {
+            this.el.feedback.className = 'feedback-panel';
+            this.el.feedback.innerHTML = '';
+        }
+    },
+
+    retryWord() {
+        this.state.isLocked = false;
+        this.hideFeedback();
+        if (window.CSS && CSS.highlights) CSS.highlights.clear();
+        this.renderWord(this.state.wordData.w);
+    },
+
+    async showReward() {
+        const overlay = document.createElement('div');
+        overlay.className = 'reward-overlay';
+        overlay.innerHTML =
+            '<div class="reward-loading">⏳ در حال بارگذاری جایزه...</div>' +
+            '<img style="display:none" alt="جایزه">' +
+            '<div class="reward-text">آفرین ' + GameShell.getUserName() + '! ⭐ امتیاز: ' + GameShell.getScore() + '</div>' +
+            '<button class="btn-continue">ادامه ➜</button>';
+        document.body.appendChild(overlay);
+
+        const img = overlay.querySelector('img');
+        const loading = overlay.querySelector('.reward-loading');
+
+        const url = await ImageService.getRewardImage();
+
+        if (url) {
+            img.onload = () => {
+                img.style.display = 'block';
+                loading.style.display = 'none';
+            };
+            img.onerror = () => {
+                loading.textContent = '🎉 آفرین! (عکس در دسترس نیست)';
+            };
+            img.src = url;
+        } else {
+            loading.textContent = '🎉 آفرین! (عکس در دسترس نیست)';
+        }
+
+        overlay.querySelector('.btn-continue').addEventListener('click', () => {
+            overlay.remove();
+            this.showNextWord();
+        });
+    },
+
+    highlightFound(idx) {
+        if (!(window.CSS && CSS.highlights)) return;
+        const textNode = this.el.word.firstChild;
+        if (!textNode) return;
+        CSS.highlights.delete('cc' + idx);
+        const range = document.createRange();
+        range.setStart(textNode, idx);
+        range.setEnd(textNode, idx + 1);
+        CSS.highlights.set('found', new Highlight(range));
+    },
+
+    flashWrong(idx) {
+        if (!(window.CSS && CSS.highlights)) return;
+        const textNode = this.el.word.firstChild;
+        if (!textNode) return;
+        const range = document.createRange();
+        range.setStart(textNode, idx);
+        range.setEnd(textNode, idx + 1);
+        CSS.highlights.set('wrongflash', new Highlight(range));
+        setTimeout(() => CSS.highlights.delete('wrongflash'), 400);
+    },
+
+    onHintToggle(visible) {
+        if (this.el.gameArea) this.el.gameArea.classList.toggle('shifted', visible);
+    },
+
+    onChangeClick() {
+        if (window.CSS && CSS.highlights) CSS.highlights.clear();
+        GameShell.disableHint();
+        GameShell.disableChange();
+        this.state.isLocked = false;
+        this.state.usedWords = [];
+        this.hideFeedback();
+        this.renderSelector();
+    }
+};
+
+GameShell.registerGame(AlphabetGame);
